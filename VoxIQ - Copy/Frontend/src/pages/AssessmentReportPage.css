@@ -1,0 +1,276 @@
+/* ============================================================
+   VoxIQ — AssessmentReportPage.css
+   Screen view + @media print styles
+============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ════════════════════════════════════════
+   SCREEN NAVBAR (hidden on print)
+════════════════════════════════════════ */
+.ar-screen-nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  height: 52px;
+  background: rgba(8,11,20,0.92);
+  backdrop-filter: blur(24px);
+  border-bottom: 1px solid #252D45;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 32px;
+}
+
+.ar-nav-back {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: none; border: none;
+  color: #9AA3C2; font-family: 'DM Sans', sans-serif;
+  font-size: 0.82rem; cursor: pointer;
+  transition: color 200ms ease;
+}
+.ar-nav-back:hover { color: #EDF0FF; }
+.ar-nav-icon { width: 16px; height: 16px; display: block; }
+
+.ar-nav-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.9rem; font-weight: 800; color: #EDF0FF;
+}
+
+.ar-nav-right { display: flex; align-items: center; gap: 10px; }
+
+.ar-nav-btn {
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 8px 18px; border-radius: 9999px;
+  border: none;
+  background: linear-gradient(135deg, #7B6EF6 0%, #4a42d6 100%);
+  color: #fff; font-family: 'DM Sans', sans-serif;
+  font-size: 0.82rem; font-weight: 600; cursor: pointer;
+  transition: all 200ms ease;
+  box-shadow: 0 4px 14px rgba(123,110,246,0.4);
+}
+.ar-nav-btn:hover { transform: translateY(-1px); box-shadow: 0 8px 20px rgba(123,110,246,0.55); }
+.ar-nav-btn-icon { width: 14px; height: 14px; display: block; }
+
+/* ════════════════════════════════════════
+   MAIN WRAPPER
+════════════════════════════════════════ */
+.ar-wrapper {
+  min-height: 100vh;
+  background: #080B14;
+  font-family: 'DM Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.ar-main {
+  padding: 68px 24px 48px;
+  display: flex; justify-content: center;
+}
+
+/* ════════════════════════════════════════
+   REPORT CARD (white paper)
+════════════════════════════════════════ */
+.ar-report {
+  width: 100%;
+  max-width: 700px;
+  background: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 12px 60px rgba(0,0,0,0.5);
+  display: flex; flex-direction: column;
+}
+
+/* ── Report header — iris gradient banner ── */
+.ar-report-header {
+  background: linear-gradient(135deg, #7B6EF6 0%, #4a42d6 100%);
+  padding: 28px 32px;
+  display: flex; flex-direction: column;
+  align-items: center; gap: 6px;
+  text-align: center;
+}
+.ar-report-brand {
+  display: flex; align-items: center; gap: 8px;
+  margin-bottom: 4px;
+}
+.ar-brand-icon { width: 20px; height: 20px; display: block; color: #fff; }
+.ar-brand-name {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.82rem; font-weight: 700;
+  color: rgba(255,255,255,0.85); letter-spacing: 0.04em;
+}
+.ar-report-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.35rem; font-weight: 800;
+  color: #ffffff; letter-spacing: -0.01em;
+}
+.ar-report-sub {
+  font-size: 0.8rem; color: rgba(255,255,255,0.7);
+}
+
+/* ── Sections ── */
+.ar-section {
+  padding: 22px 32px;
+  border-bottom: 1px solid #e8ecf0;
+  display: flex; flex-direction: column; gap: 14px;
+}
+
+.ar-section-title {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem; font-weight: 700;
+  color: #1a1f36;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #7B6EF6;
+  display: inline-block;
+}
+
+/* ── Session info grid ── */
+.ar-info-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 12px 24px;
+}
+.ar-info-item { display: flex; flex-direction: column; gap: 3px; }
+.ar-info-key {
+  font-size: 0.65rem; font-weight: 700; color: #8b95a8;
+  text-transform: uppercase; letter-spacing: 0.08em;
+}
+.ar-info-val {
+  font-size: 0.88rem; font-weight: 600; color: #1a1f36;
+}
+
+/* ── Overall assessment ── */
+.ar-overall-row {
+  padding: 20px 32px;
+  border-bottom: 1px solid #e8ecf0;
+  display: flex; align-items: center; gap: 32px;
+}
+.ar-overall-left { flex: 1; display: flex; flex-direction: column; gap: 8px; }
+.ar-overall-label {
+  font-size: 0.78rem; font-weight: 700;
+  color: #8b95a8; text-transform: uppercase; letter-spacing: 0.08em;
+}
+.ar-overall-score {
+  display: flex; align-items: baseline; gap: 4px;
+}
+.ar-overall-num {
+  font-family: 'Syne', sans-serif;
+  font-size: 2.8rem; font-weight: 800; color: #1a1f36; line-height: 1;
+}
+.ar-overall-max { font-size: 1rem; color: #8b95a8; }
+.ar-overall-bar {
+  height: 6px; background: #e8ecf0; border-radius: 3px; overflow: hidden;
+}
+.ar-overall-fill {
+  height: 100%; border-radius: 3px;
+  transition: width 0.8s ease;
+}
+
+.ar-overall-right {
+  display: flex; gap: 28px;
+}
+.ar-overall-stat { display: flex; flex-direction: column; gap: 4px; align-items: center; }
+.ar-stat-key {
+  font-size: 0.65rem; font-weight: 700; color: #8b95a8;
+  text-transform: uppercase; letter-spacing: 0.08em;
+}
+.ar-stat-val {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.3rem; font-weight: 800; color: #1a1f36;
+}
+.ar-grade { color: #7B6EF6; }
+
+/* ── Metrics table ── */
+.ar-metrics-table {
+  width: 100%; border-collapse: collapse;
+  font-size: 0.82rem;
+}
+.ar-metrics-table thead tr {
+  background: #f4f6f9;
+}
+.ar-metrics-table th {
+  padding: 8px 12px;
+  text-align: left;
+  font-size: 0.65rem; font-weight: 700;
+  color: #8b95a8; text-transform: uppercase; letter-spacing: 0.08em;
+}
+.ar-metrics-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #f0f2f5;
+}
+.ar-metric-label { color: #1a1f36; font-weight: 500; }
+.ar-metric-score { color: #1a1f36; font-family: 'Syne', sans-serif; font-weight: 700; }
+.ar-metric-level { font-weight: 600; font-size: 0.8rem; }
+
+.ar-metric-bar-cell { width: 120px; }
+.ar-metric-bar {
+  height: 5px; background: #e8ecf0; border-radius: 3px; overflow: hidden;
+}
+.ar-metric-fill {
+  height: 100%; border-radius: 3px;
+  transition: width 0.6s ease;
+}
+
+/* ── Performance analysis ── */
+.ar-analysis-row {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
+}
+.ar-analysis-card {
+  border-radius: 10px; padding: 14px 16px;
+  display: flex; flex-direction: column; gap: 10px;
+}
+.ar-strengths-card { background: rgba(46,236,197,0.06); border: 1px solid rgba(46,236,197,0.2); }
+.ar-improve-card   { background: rgba(246,169,74,0.06);  border: 1px solid rgba(246,169,74,0.2); }
+
+.ar-analysis-title {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.8rem; font-weight: 700;
+}
+.ar-title-green { color: #16a085; }
+.ar-title-amber { color: #d68910; }
+
+.ar-analysis-list { display: flex; flex-direction: column; gap: 7px; list-style: none; }
+.ar-analysis-item { font-size: 0.78rem; color: #3d4a5c; line-height: 1.5; display: flex; gap: 6px; }
+.ar-bullet { font-weight: 700; flex-shrink: 0; }
+.ar-bullet-green { color: #2EECC5; }
+.ar-bullet-amber { color: #F6A94A; }
+
+/* ── Recommendations ── */
+.ar-recommendations {
+  display: flex; flex-direction: column; gap: 8px;
+  padding-left: 20px;
+}
+.ar-recommendation-item {
+  font-size: 0.82rem; color: #3d4a5c; line-height: 1.6;
+}
+
+/* ── Report footer ── */
+.ar-report-footer {
+  padding: 16px 32px;
+  background: #f8f9fb;
+  display: flex; flex-direction: column; gap: 4px;
+}
+.ar-report-footer p {
+  font-size: 0.68rem; color: #8b95a8; line-height: 1.5;
+}
+
+/* ════════════════════════════════════════
+   PRINT STYLES
+════════════════════════════════════════ */
+@media print {
+  .ar-screen-nav { display: none !important; }
+  .ar-wrapper { background: #fff; }
+  .ar-main { padding: 0; }
+  .ar-report {
+    box-shadow: none;
+    border-radius: 0;
+    max-width: 100%;
+  }
+  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+
+@media (max-width: 640px) {
+  .ar-screen-nav { padding: 0 16px; }
+  .ar-nav-title  { font-size: 0.8rem; }
+  .ar-report-header { padding: 20px 20px; }
+  .ar-section    { padding: 16px 20px; }
+  .ar-overall-row { flex-direction: column; gap: 16px; padding: 16px 20px; }
+  .ar-analysis-row { grid-template-columns: 1fr; }
+  .ar-info-grid  { grid-template-columns: 1fr; }
+  .ar-metric-bar-cell { display: none; }
+}
